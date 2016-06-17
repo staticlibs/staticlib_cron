@@ -14,13 +14,22 @@
 
 namespace sc = staticlib::cron;
 
-void test() {
-    
+void test_simple() {
+    sc::CronExpression cron{"* * * * * *"};
+    auto secs = cron.next();
+    slassert(1 == secs.count())
+}
+
+void test_format() {
+    sc::CronExpression cron{"* * * * * *", "%Y-%m-%dT%H:%M:%S"};
+    auto secs = cron.next("2012-07-01T09:00:00");
+    slassert(1 == secs.count())
 }
 
 int main() {
     try {
-        test();
+        test_simple();
+        test_format();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;

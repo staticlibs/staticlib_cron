@@ -36,9 +36,9 @@ public:
     CronExpression(std::string expression, 
             std::string date_format = "%Y-%m-%d_%H:%M:%S");
     
-    std::chrono::seconds next();
+    std::chrono::seconds next() const;
     
-    std::chrono::seconds next(const std::string curdate);
+    std::chrono::seconds next(const std::string& curdate) const;
     
 };
 
