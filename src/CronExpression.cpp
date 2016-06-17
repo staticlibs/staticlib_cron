@@ -89,7 +89,7 @@ private:
 #ifdef STATICLIB_WINDOWS
         std::istringstream input{datestr};
         input.imbue(std::locale(setlocale(LC_ALL, nullptr)));
-        input >> std::get_time(std::adressof(cal), this->date_format);
+        input >> std::get_time(std::addressof(cal), this->date_format.c_str());
         if (input.fail()) {
             throw CronException(TRACEMSG("Error parsing specified" +
                     "  date: [" + datestr + "], with format: [" + this->date_format + "]"));
