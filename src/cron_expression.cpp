@@ -15,13 +15,13 @@
  */
 
 /* 
- * File:   CronExpression.cpp
+ * File:   cron_expression.cpp
  * Author: alex
  * 
  * Created on June 17, 2016, 4:42 PM
  */
 
-#include "staticlib/cron/CronExpression.hpp"
+#include "staticlib/cron/cron_expression.hpp"
 
 #include "ccronexpr.h"
 
@@ -47,7 +47,7 @@ namespace { // anonymous
 
 namespace sc = staticlib::config;
 
-class CronExprDeleter {
+class cron_expr_deleter {
 public:
     void operator()(cron_expr* ce) {
         cron_expr_free(ce);
@@ -56,32 +56,32 @@ public:
 
 } // namespace
 
-class CronExpression::Impl : public staticlib::pimpl::PimplObject::Impl {
+class cron_expression::impl : public staticlib::pimpl::pimpl_object::impl {
     std::string expression;
     std::string date_format;
-    std::unique_ptr<cron_expr, CronExprDeleter> cron;
+    std::unique_ptr<cron_expr, cron_expr_deleter> cron;
     
 public:
 
-    Impl(std::string expression, std::string date_format) :
+    impl(std::string expression, std::string date_format) :
     expression(std::move(expression)),
     date_format(std::move(date_format)) {
         const char* err = nullptr;
         cron_expr* cron_ptr = cron_parse_expr(this->expression.c_str(), &err);
         if (err) {
-            throw CronException(TRACEMSG("Invalid cron expression specified:" + 
+            throw cron_exception(TRACEMSG("Invalid cron expression specified:" + 
                     " [" + this->expression + "]"));
         }
-        this->cron = std::unique_ptr<cron_expr, CronExprDeleter>{cron_ptr, CronExprDeleter{}};
+        this->cron = std::unique_ptr<cron_expr, cron_expr_deleter>{cron_ptr, cron_expr_deleter{}};
     }
 
-    std::chrono::seconds next(const CronExpression&) const {
+    std::chrono::seconds next(const cron_expression&) const {
         auto now = std::chrono::system_clock::now();
         time_t date = std::chrono::system_clock::to_time_t(now);
         return next_internal(date);
     }
 
-    std::chrono::seconds next(const CronExpression&, const std::string& curdate) const {
+    std::chrono::seconds next(const cron_expression&, const std::string& curdate) const {
         time_t date = parse_date(curdate);
         return next_internal(date);
     }
@@ -90,7 +90,7 @@ private:
     std::chrono::seconds next_internal(time_t curdate) const {
         time_t res = cron_next(cron.get(), curdate);
         if (static_cast<time_t> (-1) == res) {
-            throw CronException(TRACEMSG("Error cron calculation," +
+            throw cron_exception(TRACEMSG("Error cron calculation," +
                     " curdate: [" + sc::to_string(curdate) + "]," +
                     " expression: [" + this->expression + "]" + 
                     " date_format: [" + this->date_format + "]"));
@@ -107,22 +107,22 @@ private:
         input.imbue(std::locale(setlocale(LC_ALL, nullptr)));
         input >> std::get_time(std::addressof(cal), this->date_format.c_str());
         if (input.fail()) {
-            throw CronException(TRACEMSG("Error parsing specified" +
+            throw cron_exception(TRACEMSG("Error parsing specified" +
                     "  date: [" + datestr + "], with format: [" + this->date_format + "]"));
         }
 #else // STATICLIB_WINDOWS
         auto last_parsed = ::strptime(datestr.c_str(), this->date_format.c_str(), std::addressof(cal));
         if (nullptr == last_parsed) {
-            throw CronException(TRACEMSG("Error parsing specified" +
+            throw cron_exception(TRACEMSG("Error parsing specified" +
                     "  date: [" + datestr + "], with format: [" + this->date_format + "]"));
         }
 #endif // STATICLIB_WINDOWS
         return cron_mktime(std::addressof(cal));
     }    
 };
-PIMPL_FORWARD_CONSTRUCTOR(CronExpression, (std::string)(std::string), (), CronException)
-PIMPL_FORWARD_METHOD(CronExpression, std::chrono::seconds, next, (), (const), CronException)
-PIMPL_FORWARD_METHOD(CronExpression, std::chrono::seconds, next, (const std::string&), (const), CronException)
+PIMPL_FORWARD_CONSTRUCTOR(cron_expression, (std::string)(std::string), (), cron_exception)
+PIMPL_FORWARD_METHOD(cron_expression, std::chrono::seconds, next, (), (const), cron_exception)
+PIMPL_FORWARD_METHOD(cron_expression, std::chrono::seconds, next, (const std::string&), (const), cron_exception)
 
 } //namespace
 }

@@ -15,13 +15,13 @@
  */
 
 /* 
- * File:   CronExpression_test.cpp
+ * File:   cron_expression_test.cpp
  * Author: alex
  *
  * Created on June 17, 2016, 4:35 PM
  */
 
-#include "staticlib/cron/CronExpression.hpp"
+#include "staticlib/cron/cron_expression.hpp"
 
 #include <iostream>
 #include <cstring>
@@ -31,13 +31,13 @@
 namespace sc = staticlib::cron;
 
 void test_simple() {
-    sc::CronExpression cron{"* * * * * *"};
+    sc::cron_expression cron{"* * * * * *"};
     auto secs = cron.next();
     slassert(1 == secs.count())
 }
 
 void test_format() {
-    sc::CronExpression cron{"* * * * * *", "%Y-%m-%dT%H:%M:%S"};
+    sc::cron_expression cron{"* * * * * *", "%Y-%m-%dT%H:%M:%S"};
     auto secs = cron.next("2012-07-01T09:00:00");
     slassert(1 == secs.count())
 }

@@ -24,8 +24,8 @@
 #ifndef STATICLIB_CRON_HPP
 #define	STATICLIB_CRON_HPP
 
-#include "staticlib/cron/CronException.hpp"
-#include "staticlib/cron/CronExpression.hpp"
+#include "staticlib/cron/cron_exception.hpp"
+#include "staticlib/cron/cron_expression.hpp"
 
 #endif	/* STATICLIB_CRON_HPP */
 

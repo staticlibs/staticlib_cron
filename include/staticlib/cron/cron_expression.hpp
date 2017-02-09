@@ -15,7 +15,7 @@
  */
 
 /* 
- * File:   CronExpression.hpp
+ * File:   cron_expression.hpp
  * Author: alex
  *
  * Created on June 17, 2016, 11:25 AM
@@ -29,7 +29,7 @@
 
 #include "staticlib/pimpl.hpp"
 
-#include "staticlib/cron/CronException.hpp"
+#include "staticlib/cron/cron_exception.hpp"
 
 namespace staticlib {
 namespace cron {
@@ -37,12 +37,12 @@ namespace cron {
 /**
  * Cron expression implementation
  */
-class CronExpression : public staticlib::pimpl::PimplObject {
+class cron_expression : public staticlib::pimpl::pimpl_object {
 protected:
     /**
-     * Implementation class
+     * implementation class
      */
-    class Impl;    
+    class impl;    
 
 public:
     /**
@@ -50,7 +50,7 @@ public:
      * 
      * @param pimpl impl object
      */
-    PIMPL_CONSTRUCTOR(CronExpression)    
+    PIMPL_CONSTRUCTOR(cron_expression)    
             
     /**
      * Constructor
@@ -59,7 +59,7 @@ public:
      * @param date_format date format for parsing `curdate` (optional),
      *        `%Y-%m-%d_%H:%M:%S` is used by default
      */
-    CronExpression(std::string expression, std::string date_format = "%Y-%m-%d_%H:%M:%S");
+    cron_expression(std::string expression, std::string date_format = "%Y-%m-%d_%H:%M:%S");
     
     /**
      * Calculates a number of seconds to the next Cron fire event starting from the current instant

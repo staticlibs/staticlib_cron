@@ -15,7 +15,7 @@
  */
 
 /* 
- * File:   CronException.hpp
+ * File:   cron_exception.hpp
  * Author: alex
  *
  * Created on June 17, 2016, 11:25 AM
@@ -24,7 +24,7 @@
 #ifndef STATICLIB_CRON_CRONEXCEPTION_HPP
 #define	STATICLIB_CRON_CRONEXCEPTION_HPP
 
-#include "staticlib/config/BaseException.hpp"
+#include "staticlib/config/staticlib_exception.hpp"
 
 namespace staticlib {
 namespace cron {
@@ -32,20 +32,20 @@ namespace cron {
 /**
  * Module specific exception
  */
-class CronException : public staticlib::config::BaseException {
+class cron_exception : public staticlib::config::staticlib_exception {
 public:
     /**
      * Default constructor
      */
-    CronException() = default;
+    cron_exception() = default;
 
     /**
      * Constructor with message
      * 
      * @param msg error message
      */
-    CronException(const std::string& msg) :
-    staticlib::config::BaseException(msg) { }
+    cron_exception(const std::string& msg) :
+    staticlib::config::staticlib_exception(msg) { }
 
 };
 
