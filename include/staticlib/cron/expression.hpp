@@ -60,21 +60,42 @@ public:
      *        `%Y-%m-%d_%H:%M:%S` is used by default
      */
     expression(const std::string& expression, const std::string& date_format = "%Y-%m-%d_%H:%M:%S");
+
+    /**
+     * Calculates a duration to the next Cron fire event starting from the current instant
+     * 
+     * @return duration to the next Cron fire event starting from the current instant
+     */
+    template<typename Duration>
+    Duration next() const {
+        return std::chrono::duration_cast<Duration>(next_seconds());
+    }
     
     /**
      * Calculates a number of seconds to the next Cron fire event starting from the current instant
      * 
      * @return number of seconds to the next Cron fire event starting from the current instant
      */
-    std::chrono::seconds next() const;
+    std::chrono::seconds next_seconds() const;
 
+    /**
+     * Calculates a duration to the next Cron fire event starting from the specified date
+     * 
+     * @param curdate starting date for calculation
+     * @return duration to the next Cron fire event starting from the specified date
+     */
+    template<typename Duration>
+    Duration next(const std::string& curdate) const {
+        return std::chrono::duration_cast<Duration>(next_seconds(curdate));
+    }
+    
     /**
      * Calculates a number of seconds to the next Cron fire event starting from the specified date
      * 
      * @param curdate starting date for calculation
      * @return number of seconds to the next Cron fire event starting from the specified date
      */
-    std::chrono::seconds next(const std::string& curdate) const;
+    std::chrono::seconds next_seconds(const std::string& curdate) const;
     
 };
 

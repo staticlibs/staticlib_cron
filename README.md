@@ -11,14 +11,14 @@ Link to the [API documentation](http://staticlibs.github.io/staticlib_cron/docs/
 Usage example
 -------------
 
-Create a `CronExpression` instance using and expression and an optional date format string:
+Create a `sl::cron::expression` instance using and expression and an optional date format string:
 
-    staticlib::cron::CronExpression cron{"0 */2 1-4 * * *", "%Y-%m-%d_%H:%M:%S"};
+    auto cron = sl::cron::expression("0 */2 1-4 * * *", "%Y-%m-%d_%H:%M:%S");
 
 Number of seconds to the next fire time can be calculated either from current instant, or from a specified date:
 
-    std::chrono::seconds secs_from_now = cron.next();
-    std::chrono::seconds secs_from_spec_date = cron.next("2012-07-01_09:00:00");
+    auto millis millis_from_now = cron.next<std::chrono::milliseconds>();
+    auto secs_from_spec_date = cron.next<std::chrono::seconds>("2012-07-01_09:00:00");
 
 By default all dates calculation is done using UTC dates.
 To use local dates instead configure build with `-Dstaticlib_cron_USE_LOCALTIME=ON` option.
@@ -60,6 +60,7 @@ Changelog
 **2017-05-03**
 
  * version 1.1.0
+ * duration conversion support
  * minor renaming
 
 **2016-06-17**

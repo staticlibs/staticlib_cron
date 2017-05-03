@@ -75,13 +75,13 @@ public:
         this->cron = std::unique_ptr<cron_expr, cron_expr_deleter>{cron_ptr, cron_expr_deleter{}};
     }
 
-    std::chrono::seconds next(const expression&) const {
+    std::chrono::seconds next_seconds(const expression&) const {
         auto now = std::chrono::system_clock::now();
         time_t date = std::chrono::system_clock::to_time_t(now);
         return next_internal(date);
     }
 
-    std::chrono::seconds next(const expression&, const std::string& curdate) const {
+    std::chrono::seconds next_seconds(const expression&, const std::string& curdate) const {
         time_t date = parse_date(curdate);
         return next_internal(date);
     }
@@ -121,8 +121,8 @@ private:
     }    
 };
 PIMPL_FORWARD_CONSTRUCTOR(expression, (const std::string&)(const std::string&), (), cron_exception)
-PIMPL_FORWARD_METHOD(expression, std::chrono::seconds, next, (), (const), cron_exception)
-PIMPL_FORWARD_METHOD(expression, std::chrono::seconds, next, (const std::string&), (const), cron_exception)
+PIMPL_FORWARD_METHOD(expression, std::chrono::seconds, next_seconds, (), (const), cron_exception)
+PIMPL_FORWARD_METHOD(expression, std::chrono::seconds, next_seconds, (const std::string&), (const), cron_exception)
 
 } //namespace
 }

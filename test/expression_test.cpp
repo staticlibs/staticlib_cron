@@ -28,17 +28,15 @@
 
 #include "staticlib/config/assert.hpp"
 
-namespace sc = staticlib::cron;
-
 void test_simple() {
-    sc::expression cron{"* * * * * *"};
-    auto secs = cron.next();
-    slassert(1 == secs.count())
+    sl::cron::expression cron{"* * * * * *"};
+    std::chrono::milliseconds secs = cron.next<std::chrono::milliseconds>();
+    slassert(1000 == secs.count())
 }
 
 void test_format() {
-    sc::expression cron{"* * * * * *", "%Y-%m-%dT%H:%M:%S"};
-    auto secs = cron.next("2012-07-01T09:00:00");
+    sl::cron::expression cron{"* * * * * *", "%Y-%m-%dT%H:%M:%S"};
+    auto secs = cron.next<std::chrono::seconds>("2012-07-01T09:00:00");
     slassert(1 == secs.count())
 }
 
