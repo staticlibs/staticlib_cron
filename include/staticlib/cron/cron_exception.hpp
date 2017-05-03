@@ -24,7 +24,7 @@
 #ifndef STATICLIB_CRON_CRONEXCEPTION_HPP
 #define	STATICLIB_CRON_CRONEXCEPTION_HPP
 
-#include "staticlib/config/staticlib_exception.hpp"
+#include "staticlib/support/exception.hpp"
 
 namespace staticlib {
 namespace cron {
@@ -32,7 +32,7 @@ namespace cron {
 /**
  * Module specific exception
  */
-class cron_exception : public staticlib::config::staticlib_exception {
+class cron_exception : public sl::support::exception {
 public:
     /**
      * Default constructor
@@ -45,7 +45,7 @@ public:
      * @param msg error message
      */
     cron_exception(const std::string& msg) :
-    staticlib::config::staticlib_exception(msg) { }
+    sl::support::exception(msg) { }
 
 };
 

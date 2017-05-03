@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( staticlib_cron CXX C )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.0 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.0.1 )
 set ( ${PROJECT_NAME}_DESCRIPTION "Staticlibs Cron library" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/staticlib_cron )
 include ( ${CMAKE_CURRENT_LIST_DIR}/resources/macros.cmake )
@@ -48,12 +48,14 @@ if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
 endif ( )
 if ( NOT DEFINED STATICLIB_TOOLCHAIN )
     staticlib_cron_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_config )
+    staticlib_cron_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_support )
     staticlib_cron_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_pimpl )
 endif ( )
 
 # dependencies
 set ( ${PROJECT_NAME}_DEPS
         staticlib_config
+        staticlib_support
         staticlib_pimpl )
 staticlib_cron_pkg_check_modules ( ${PROJECT_NAME}_DEPS_PC REQUIRED ${PROJECT_NAME}_DEPS )
 

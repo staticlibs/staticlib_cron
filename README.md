@@ -37,6 +37,7 @@ Visual Studio development command prompt
 (`C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\Shortcuts\VS2013 x86 Native Tools Command Prompt`):
 
     git clone https://github.com/staticlibs/staticlib_config.git
+    git clone https://github.com/staticlibs/staticlib_support.git
     git clone https://github.com/staticlibs/staticlib_pimpl.git
     git clone --recursive https://github.com/staticlibs/staticlib_cron.git
     cd staticlib_cron
@@ -55,6 +56,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2017-05-03**
+
+ * version 1.1.0
+ * minor renaming
 
 **2016-06-17**
 

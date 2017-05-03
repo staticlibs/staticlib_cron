@@ -15,14 +15,14 @@
  */
 
 /* 
- * File:   cron_expression.hpp
+ * File:   expression.hpp
  * Author: alex
  *
  * Created on June 17, 2016, 11:25 AM
  */
 
-#ifndef STATICLIB_CRON_CRONEXPRESSION_HPP
-#define	STATICLIB_CRON_CRONEXPRESSION_HPP
+#ifndef STATICLIB_CRON_EXPRESSION_HPP
+#define	STATICLIB_CRON_EXPRESSION_HPP
 
 #include <chrono>
 #include <string>
@@ -37,7 +37,7 @@ namespace cron {
 /**
  * Cron expression implementation
  */
-class cron_expression : public staticlib::pimpl::pimpl_object {
+class expression : public sl::pimpl::object {
 protected:
     /**
      * implementation class
@@ -50,7 +50,7 @@ public:
      * 
      * @param pimpl impl object
      */
-    PIMPL_CONSTRUCTOR(cron_expression)    
+    PIMPL_CONSTRUCTOR(expression)    
             
     /**
      * Constructor
@@ -59,7 +59,7 @@ public:
      * @param date_format date format for parsing `curdate` (optional),
      *        `%Y-%m-%d_%H:%M:%S` is used by default
      */
-    cron_expression(std::string expression, std::string date_format = "%Y-%m-%d_%H:%M:%S");
+    expression(const std::string& expression, const std::string& date_format = "%Y-%m-%d_%H:%M:%S");
     
     /**
      * Calculates a number of seconds to the next Cron fire event starting from the current instant
@@ -81,5 +81,5 @@ public:
 } // namespace
 }
 
-#endif	/* STATICLIB_CRON_CRONEXPRESSION_HPP */
+#endif	/* STATICLIB_CRON_EXPRESSION_HPP */
 
