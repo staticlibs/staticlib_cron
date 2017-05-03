@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>staticlib_cron: staticlib::cron::CronExpression Class Reference</title>
+<title>staticlib_cron: staticlib::cron::cron_exception Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_cron
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
   </td>
  </tr>
@@ -82,122 +82,89 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacestaticlib.html">staticlib</a></li><li class="navelem"><a class="el" href="namespacestaticlib_1_1cron.html">cron</a></li><li class="navelem"><a class="el" href="classstaticlib_1_1cron_1_1CronExpression.html">CronExpression</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacestaticlib.html">staticlib</a></li><li class="navelem"><a class="el" href="namespacestaticlib_1_1cron.html">cron</a></li><li class="navelem"><a class="el" href="classstaticlib_1_1cron_1_1cron__exception.html">cron_exception</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classstaticlib_1_1cron_1_1CronExpression-members.html">List of all members</a>  </div>
+<a href="classstaticlib_1_1cron_1_1cron__exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">staticlib::cron::CronExpression Class Reference</div>  </div>
+<div class="title">staticlib::cron::cron_exception Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Cron expression implementation.  
- <a href="classstaticlib_1_1cron_1_1CronExpression.html#details">More...</a></p>
+<p>Module specific exception.  
+ <a href="classstaticlib_1_1cron_1_1cron__exception.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="CronExpression_8hpp_source.html">staticlib/cron/CronExpression.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="cron__exception_8hpp_source.html">staticlib/cron/cron_exception.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a94849f720f0fc92cf3d2e67d2e7ed9cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1cron_1_1CronExpression.html#a94849f720f0fc92cf3d2e67d2e7ed9cc">CronExpression</a> (std::string expression, std::string date_format=&quot;%Y-%m-%d_%H:%M:%S&quot;)</td></tr>
-<tr class="memdesc:a94849f720f0fc92cf3d2e67d2e7ed9cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">PIMPL-specific constructor.  <a href="#a94849f720f0fc92cf3d2e67d2e7ed9cc"></a><br/></td></tr>
-<tr class="memitem:a7817c870db4f01d2c5a80fd8bb91c0f2"><td class="memItemLeft" align="right" valign="top">std::chrono::seconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1cron_1_1CronExpression.html#a7817c870db4f01d2c5a80fd8bb91c0f2">next</a> () const </td></tr>
-<tr class="memdesc:a7817c870db4f01d2c5a80fd8bb91c0f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a number of seconds to the next Cron fire event starting from the current instant.  <a href="#a7817c870db4f01d2c5a80fd8bb91c0f2"></a><br/></td></tr>
-<tr class="memitem:a46a17dbab4450dd632c40a86ed9ceba2"><td class="memItemLeft" align="right" valign="top">std::chrono::seconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1cron_1_1CronExpression.html#a46a17dbab4450dd632c40a86ed9ceba2">next</a> (const std::string &amp;curdate) const </td></tr>
-<tr class="memdesc:a46a17dbab4450dd632c40a86ed9ceba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a number of seconds to the next Cron fire event starting from the specified date.  <a href="#a46a17dbab4450dd632c40a86ed9ceba2"></a><br/></td></tr>
+<tr class="memitem:ae161de69835624fb9c96446ee51e9e23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1cron_1_1cron__exception.html#ae161de69835624fb9c96446ee51e9e23">cron_exception</a> ()</td></tr>
+<tr class="memdesc:ae161de69835624fb9c96446ee51e9e23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#ae161de69835624fb9c96446ee51e9e23"></a><br/></td></tr>
+<tr class="memitem:aaca8062dcd114a0fab5dcb1ae1c9cb9e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1cron_1_1cron__exception.html#aaca8062dcd114a0fab5dcb1ae1c9cb9e">cron_exception</a> (const std::string &amp;msg)</td></tr>
+<tr class="memdesc:aaca8062dcd114a0fab5dcb1ae1c9cb9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with message.  <a href="#aaca8062dcd114a0fab5dcb1ae1c9cb9e"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Cron expression implementation. </p>
+<div class="textblock"><p>Module specific exception. </p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a94849f720f0fc92cf3d2e67d2e7ed9cc"></a>
+<a class="anchor" id="ae161de69835624fb9c96446ee51e9e23"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">staticlib::cron::CronExpression::CronExpression </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>expression</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>date_format</em> = <code>&quot;%Y-%m-%d_%H:%M:%S&quot;</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>PIMPL-specific constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pimpl</td><td>impl object Constructor</td></tr>
-    <tr><td class="paramname">expression</td><td>Cron expression </td></tr>
-    <tr><td class="paramname">date_format</td><td>date format for parsing <code>curdate</code> (optional), <code>Y-m-d_H:M:S</code> is used by default </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2>Member Function Documentation</h2>
-<a class="anchor" id="a7817c870db4f01d2c5a80fd8bb91c0f2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::chrono::seconds staticlib::cron::CronExpression::next </td>
+          <td class="memname">staticlib::cron::cron_exception::cron_exception </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculates a number of seconds to the next Cron fire event starting from the current instant. </p>
-<dl class="section return"><dt>Returns</dt><dd>number of seconds to the next Cron fire event starting from the current instant </dd></dl>
+<p>Default constructor. </p>
 
 </div>
 </div>
-<a class="anchor" id="a46a17dbab4450dd632c40a86ed9ceba2"></a>
+<a class="anchor" id="aaca8062dcd114a0fab5dcb1ae1c9cb9e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::chrono::seconds staticlib::cron::CronExpression::next </td>
+          <td class="memname">staticlib::cron::cron_exception::cron_exception </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>curdate</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Calculates a number of seconds to the next Cron fire event starting from the specified date. </p>
+<p>Constructor with message. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">curdate</td><td>starting date for calculation </td></tr>
+    <tr><td class="paramname">msg</td><td>error message </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>number of seconds to the next Cron fire event starting from the specified date </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>staticlib/cron/<a class="el" href="CronExpression_8hpp_source.html">CronExpression.hpp</a></li>
+<li>staticlib/cron/<a class="el" href="cron__exception_8hpp_source.html">cron_exception.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 17 2016 19:53:14 for staticlib_cron by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 3 2017 12:32:23 for staticlib_cron by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
