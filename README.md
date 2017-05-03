@@ -6,7 +6,7 @@ This project is a part of [Staticlibs](http://staticlibs.net/).
 This library implements [Cron expressions](https://en.wikipedia.org/wiki/Cron), 
 it is built on top of [ccronexpr](https://github.com/staticlibs/ccronexpr) library.
 
-Link to the [API documentation](http://staticlibs.github.io/staticlib_cron/docs/html/classstaticlib_1_1cron_1_1CronExpression.html).
+Link to the [API documentation](http://staticlibs.github.io/staticlib_cron/docs/html/classstaticlib_1_1cron_1_1expression.html).
 
 Usage example
 -------------
