@@ -25,10 +25,12 @@
 
 #include "ccronexpr.h"
 
-#include <memory>
-#include <ctime>
 #include <cmath>
+#include <cstring>
+#include <cstdlib>
+#include <ctime>
 #include <ios>
+#include <memory>
 #ifdef STATICLIB_WINDOWS
 #include <iomanip>
 #include <sstream>
@@ -51,7 +53,7 @@ namespace sc = staticlib::config;
 class cron_expr_deleter {
 public:
     void operator()(cron_expr* ce) {
-        cron_expr_free(ce);
+        std::free(ce);
     }
 };
 
@@ -66,13 +68,16 @@ public:
     impl(const std::string& expr, const std::string& date_format) :
     expr(expr.data(), expr.length()),
     date_format(date_format.data(), date_format.length()) {
+        auto cptr = static_cast<cron_expr*>(std::malloc(sizeof(cron_expr)));
+        auto cron_ptr = std::unique_ptr<cron_expr, cron_expr_deleter>(cptr, cron_expr_deleter());
+        std::memset(cron_ptr.get(), 0, sizeof(cron_expr));
         const char* err = nullptr;
-        cron_expr* cron_ptr = cron_parse_expr(this->expr.c_str(), &err);
+        cron_parse_expr(this->expr.c_str(), cron_ptr.get(), std::addressof(err));
         if (err) {
             throw cron_exception(TRACEMSG("Invalid cron expression specified:" + 
                     " [" + this->expr + "]"));
         }
-        this->cron = std::unique_ptr<cron_expr, cron_expr_deleter>{cron_ptr, cron_expr_deleter{}};
+        this->cron = std::move(cron_ptr);
     }
 
     std::chrono::seconds next_seconds(const expression&) const {
