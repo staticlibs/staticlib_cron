@@ -21,7 +21,7 @@ environment:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       SL_CMAKE_VS: 15 2017
 
-clone_folder: c:\projects\staticlib_pimpl
+clone_folder: c:\projects\staticlib_cron
 
 install:
   - git submodule update --init --recursive
