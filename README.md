@@ -1,6 +1,9 @@
 Cron expressions library for Staticlibs
 =======================================
 
+[![travis](https://travis-ci.org/staticlibs/staticlib_cron.svg?branch=master)](https://travis-ci.org/staticlibs/staticlib_cron)
+[![appveyor](https://ci.appveyor.com/api/projects/status/github/staticlibs/staticlib_cron?svg=true)](https://ci.appveyor.com/project/staticlibs/staticlib-cron)
+
 This project is a part of [Staticlibs](http://staticlibs.net/).
 
 This library implements [Cron expressions](https://en.wikipedia.org/wiki/Cron), 
@@ -11,7 +14,7 @@ Link to the [API documentation](http://staticlibs.github.io/staticlib_cron/docs/
 Usage example
 -------------
 
-Create a `sl::cron::expression` instance using and expression and an optional date format string:
+Create a `sl::cron::expression` instance using an expression and an optional date format string:
 
     auto cron = sl::cron::expression("0 */2 1-4 * * *", "%Y-%m-%d_%H:%M:%S");
 
@@ -56,6 +59,12 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2017-12-23**
+
+ * version 1.1.1
+ * vs2017 support
+ * `ccronexp` update
 
 **2017-05-03**
 

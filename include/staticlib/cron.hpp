@@ -22,12 +22,12 @@
  */
 
 #ifndef STATICLIB_CRON_HPP
-#define	STATICLIB_CRON_HPP
+#define STATICLIB_CRON_HPP
 
 #include "staticlib/config.hpp"
 
 #include "staticlib/cron/cron_exception.hpp"
 #include "staticlib/cron/expression.hpp"
 
-#endif	/* STATICLIB_CRON_HPP */
+#endif /* STATICLIB_CRON_HPP */
 

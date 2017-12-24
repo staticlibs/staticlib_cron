@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_CRON_CRONEXCEPTION_HPP
-#define	STATICLIB_CRON_CRONEXCEPTION_HPP
+#define STATICLIB_CRON_CRONEXCEPTION_HPP
 
 #include "staticlib/support/exception.hpp"
 
@@ -52,5 +52,5 @@ public:
 } //namespace
 }
 
-#endif	/* STATICLIB_CRON_CRONEXCEPTION_HPP */
+#endif /* STATICLIB_CRON_CRONEXCEPTION_HPP */
 

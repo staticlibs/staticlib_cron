@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_CRON_EXPRESSION_HPP
-#define	STATICLIB_CRON_EXPRESSION_HPP
+#define STATICLIB_CRON_EXPRESSION_HPP
 
 #include <chrono>
 #include <string>
@@ -102,5 +102,5 @@ public:
 } // namespace
 }
 
-#endif	/* STATICLIB_CRON_EXPRESSION_HPP */
+#endif /* STATICLIB_CRON_EXPRESSION_HPP */
 
