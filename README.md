@@ -33,7 +33,7 @@ How to build
 
 [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config/) utility is used for dependency management.
 For Windows users ready-to-use binary version of `pkg-config` can be obtained from [tools_windows_pkgconfig](https://github.com/staticlibs/tools_windows_pkgconfig) repository.
-See [StaticlibPkgConfig](https://github.com/staticlibs/wiki/wiki/StaticlibPkgConfig) for Staticlibs-specific details about `pkg-config` usage.
+See [StaticlibsPkgConfig](https://github.com/staticlibs/wiki/wiki/StaticlibsPkgConfig) for Staticlibs-specific details about `pkg-config` usage.
 
 To build the library on Windows using Visual Studio 2013 Express run the following commands using
 Visual Studio development command prompt 
