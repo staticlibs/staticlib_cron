@@ -57,9 +57,9 @@ install:
     fi
 
 before_script:
-  - git submodule update --init --recursive
   - cd ..
   - git clone https://github.com/staticlibs/cmake.git
+  - git clone https://github.com/staticlibs/ccronexpr.git
   - git clone https://github.com/staticlibs/staticlib_config.git
   - git clone https://github.com/staticlibs/staticlib_support.git
   - git clone https://github.com/staticlibs/staticlib_pimpl.git

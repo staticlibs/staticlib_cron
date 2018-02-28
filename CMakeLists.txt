@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( staticlib_cron CXX C )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.1 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.2 )
 set ( ${PROJECT_NAME}_DESCRIPTION "Staticlibs Cron library" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/staticlib_cron )
 include ( ${CMAKE_CURRENT_LIST_DIR}/resources/macros.cmake )
@@ -59,17 +59,21 @@ set ( ${PROJECT_NAME}_DEPS
         staticlib_pimpl )
 staticlib_cron_pkg_check_modules ( ${PROJECT_NAME}_DEPS_PC REQUIRED ${PROJECT_NAME}_DEPS )
 
+if ( NOT DEFINED ccronexpr_SOURCES_DIR )
+    set ( ccronexpr_SOURCES_DIR ${CMAKE_CURRENT_LIST_DIR}/../ccronexpr CACHE INTERNAL "" )
+endif ( )
+
 # library
 file ( GLOB_RECURSE ${PROJECT_NAME}_SRC ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp )
 file ( GLOB_RECURSE ${PROJECT_NAME}_HEADERS ${CMAKE_CURRENT_LIST_DIR}/include/*.hpp )
-set ( ${PROJECT_NAME}_SRC ${${PROJECT_NAME}_SRC} ${CMAKE_CURRENT_LIST_DIR}/ccronexpr/ccronexpr.c )
-set ( ${PROJECT_NAME}_HEADERS ${${PROJECT_NAME}_HEADERS} ${CMAKE_CURRENT_LIST_DIR}/ccronexpr/ccronexpr.h )
+set ( ${PROJECT_NAME}_SRC ${${PROJECT_NAME}_SRC} ${ccronexpr_SOURCES_DIR}/ccronexpr.c )
+set ( ${PROJECT_NAME}_HEADERS ${${PROJECT_NAME}_HEADERS} ${ccronexpr_SOURCES_DIR}/ccronexpr.h )
 add_library ( ${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRC} ${${PROJECT_NAME}_HEADERS} )
 source_group ( "src" FILES ${${PROJECT_NAME}_SRC} )
 source_group ( "include" FILES ${${PROJECT_NAME}_HEADERS} )
 target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE 
         ${CMAKE_CURRENT_LIST_DIR}/include
-        ${CMAKE_CURRENT_LIST_DIR}/ccronexpr
+        ${ccronexpr_SOURCES_DIR}
         ${${PROJECT_NAME}_DEPS_PC_INCLUDE_DIRS} )
 target_compile_options ( ${PROJECT_NAME} PRIVATE 
         ${${PROJECT_NAME}_DEPS_PC_CFLAGS_OTHER}

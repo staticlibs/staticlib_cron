@@ -42,7 +42,8 @@ Visual Studio development command prompt
     git clone https://github.com/staticlibs/staticlib_config.git
     git clone https://github.com/staticlibs/staticlib_support.git
     git clone https://github.com/staticlibs/staticlib_pimpl.git
-    git clone --recursive https://github.com/staticlibs/staticlib_cron.git
+    git clone https://github.com/staticlibs/staticlib_cron.git
+    git clone https://github.com/staticlibs/ccronexpr.git
     cd staticlib_cron
     mkdir build
     cd build
@@ -59,6 +60,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2018-02-28**
+
+ * version 1.1.2
+ * `ccronexp` submodule dropped
 
 **2017-12-23**
 
